@@ -1,0 +1,115 @@
+.check {
+    --color-label: var(--second_color);
+    --color-default: var(--second_color);
+    --color-active: var(--main_color);
+    --rotate-default: 180deg;
+    --rotate-active: 90deg;
+    --border-size-checkmark: 3px;
+    --border-size-box: 0;
+    --input-size: 30px;
+    --guter: 34px;
+}
+
+/* basic reset */
+.check {
+    box-sizing: border-box;
+    cursor: pointer;
+    position: relative;
+    display: flex;
+    margin-right: 0;
+    align-items: center;
+
+    *,
+    *::before,
+    *::after {
+        box-sizing: border-box;
+    }
+
+    &.focus,
+    &:focus,
+    &:active{
+
+        .check-label {
+            &:before {
+                outline: 2px solid var(--color-label);
+                outline-style: dotted;
+                outline-offset: 2px;
+            }
+        }
+    }
+
+    & > input {
+        display: none;
+    }
+
+    & > input[type="checkbox"] {
+        clip-path: polygon(0 0);
+
+        &[disabled],
+        &[readonly],
+        &[disabled]:hover,
+        &[readonly]:hover{
+
+            & + .check-label {
+                color: #aaa!important;
+                &::before {
+                    background: #F7F8FA!important;
+                    border: 1.5px solid #E7E9EB!important;
+                    color: #aaa!important;
+                }
+            }
+        }
+    }
+
+    &.check-checkbox {
+        & > input {
+            &:hover {
+                & + .check-label {
+                    color: var(--color-label);
+                }
+            }
+            &:checked {
+                & + .check-label::before {
+                    background-image: url("../images/check-on.svg");
+                }
+            }
+        }
+
+        .check-label {
+            &::before {
+                background-image: url("../images/check-off.svg");
+            }
+        }
+    }
+
+    .check-label {
+        display: inline-block;
+        padding-left: var(--guter);
+        color: var(--color-label);
+        vertical-align: text-top;
+        &::before,
+        &::after {
+            transition: all 0.35s;
+        }
+        &::before {
+            content: '';
+            display: block;
+            width: var(--input-size);
+            height: var(--input-size);
+            border: var(--border-size-box) solid var(--color-default);
+            position: absolute;
+            top: 1px;
+            left: 0;
+            transform: rotate(0deg) scale(1);
+        }
+        &:hover::before {
+            border-color: var(--color-default);
+        }
+    }
+}
+
+@media screen and (max-width: 560px) {
+    .check .check-label::before {
+        top: -4px;
+    }
+}

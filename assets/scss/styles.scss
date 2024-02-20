@@ -1,0 +1,44 @@
+@import "settings/fonts";
+@import "settings/global";
+
+@import "includes/check";
+
+@import "elements/forms";
+
+body {
+    color: var(--main_color);
+    font-family: var(--base_font);
+    background: var(--bg_color);
+    font: var(--font);
+}
+
+main {
+    max-width: 1000px;
+}
+
+h1 {
+    font: 700 96px/105px var(--second_font);
+    color: var(--second_color);
+    margin-bottom: 4px;
+
+    span {
+        color: var(--main_color);
+    }
+}
+
+p {
+    margin-bottom: 50px;
+}
+
+a {
+    color: var(--main_color);
+    &:hover {
+        color: var(--second_color);
+    }
+}
+
+@media screen and (max-width: 560px) {
+    h1 {
+        font: 700 48px/56px var(--second_font);
+    }
+}

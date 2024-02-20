@@ -1,0 +1,25 @@
+/* Variables */
+
+// Vertical Rhythm Multiplier
+
+:root {
+    --bg_color: #F7F9FD;
+    --main_color: #2A3B53;
+    --second_color: #8B96AC;
+    --border_color: #5B6C8C;
+    --danger_color: #BA5B5B;
+    --third_color: #5879EF;
+    --base_font: "Hind", sans-serif;
+    --second_font: "Overpass", sans-serif;
+    --font: 400 24px/36px var(--base_font);
+
+    ::placeholder {
+        color: var(--second_color);
+    }
+}
+
+@media screen and (max-width: 560px) {
+    :root {
+        --font: 400 14px/24px var(--base_font);
+    }
+}
